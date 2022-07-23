@@ -28,8 +28,18 @@ app.post("/addcourse",async (req,res)=>{
     )
 })
 
-app.get("/viewcourse",(req,res)=>{
-    res.send("Welcome to view course")
+app.get("/viewcourse",async (req,res)=>{
+    courses.find(
+        (error,data)=>{
+            if(error)
+            {
+res.send(error)
+            }
+            else{
+res.send(data)
+            }
+        }
+    )
 })
 
 app.get("/searchcourse",(req,res)=>{
